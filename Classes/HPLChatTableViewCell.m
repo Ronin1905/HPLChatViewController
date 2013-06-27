@@ -119,11 +119,11 @@
     if (self.showBubble) {
         if (type == ChatTypeSomeoneElse)
         {
-            self.chatImage.image = [[UIImage imageNamed:@"chatSomeone.png"] stretchableImageWithLeftCapWidth:21 topCapHeight:14];
+            self.chatImage.image = [[UIImage imageNamed:@"bubbleSomeone.png"] stretchableImageWithLeftCapWidth:21 topCapHeight:14];
 
         }
         else {
-            self.chatImage.image = [[UIImage imageNamed:@"chatMine.png"] stretchableImageWithLeftCapWidth:15 topCapHeight:14];
+            self.chatImage.image = [[UIImage imageNamed:@"bubbleMine.png"] stretchableImageWithLeftCapWidth:15 topCapHeight:14];
         }
 
         self.chatImage.frame = CGRectMake(x, y, width + self.data.insets.left + self.data.insets.right, height + self.data.insets.top + self.data.insets.bottom);
