@@ -83,9 +83,9 @@
     if (self.showAvatar)
     {
         [self.avatarImage removeFromSuperview];
-        if (data.avatarImageView)
+        if (self.data.avatarImageView)
         {
-            self.avatarImage = data.avatarImageView;
+            self.avatarImage = self.data.avatarImageView;
         }
         else
         {
