@@ -83,11 +83,19 @@
     if (self.showAvatar)
     {
         [self.avatarImage removeFromSuperview];
+        if (data.avatarImageView)
+        {
+            self.avatarImage = data.avatarImageView;
+        }
+        else
+        {
 #if !__has_feature(objc_arc)
-        self.avatarImage = [[[UIImageView alloc] initWithImage:(self.data.avatar ? self.data.avatar : [UIImage imageNamed:@"missingAvatar.png"])] autorelease];
+            self.avatarImage = [[[UIImageView alloc] initWithImage:(self.data.avatar ? self.data.avatar : [UIImage imageNamed:@"missingAvatar.png"])] autorelease];
 #else
-        self.avatarImage = [[UIImageView alloc] initWithImage:(self.data.avatar ? self.data.avatar : [UIImage imageNamed:@"missingAvatar.png"])];
+            self.avatarImage = [[UIImageView alloc] initWithImage:(self.data.avatar ? self.data.avatar : [UIImage imageNamed:@"missingAvatar.png"])];
 #endif
+        }
+
         self.avatarImage.layer.cornerRadius = 9.0;
         self.avatarImage.layer.masksToBounds = YES;
         self.avatarImage.layer.borderColor = [UIColor colorWithWhite:0.0 alpha:0.2].CGColor;
@@ -98,6 +106,7 @@
         
         self.avatarImage.frame = CGRectMake(avatarX, avatarY, 50, 50);
         [self addSubview:self.avatarImage];
+
         
         CGFloat delta = self.frame.size.height - (self.data.insets.top + self.data.insets.bottom + self.data.view.frame.size.height);
         if (delta > 0) y = delta;
